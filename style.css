@@ -1,0 +1,106 @@
+.site-header {
+    background-color: #ffffff; /* clipto.ai header 背景色 */
+    padding: 15px 0; /* 上下内边距，后续精确调整 */
+    border-bottom: 1px solid #e9ecef; /* clipto.ai 底边框颜色 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 添加细微阴影 */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* 调整上下内边距使Logo更居中 */
+}
+
+/* Logo 样式 */
+.logo {
+    display: flex;
+    align-items: center;
+    animation: logoFadeIn 0.8s ease; /* Logo 加载动画 */
+}
+
+.logo a {
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo svg {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+/* Logo 悬停效果 */
+.logo a:hover {
+    opacity: 0.85;
+}
+
+/* 为播放按钮添加悬停动画 */
+.logo a:hover circle {
+    fill: #c0392b;
+    transition: fill 0.3s ease;
+}
+
+.logo a:hover path {
+    transform: translateX(2px);
+    transition: transform 0.3s ease;
+}
+
+/* Logo 加载动画 */
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 播放按钮脉冲效果 */
+.logo circle {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 确保导航链接与Logo垂直对齐 */
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 30px; /* 根据 clipto.ai 调整 */
+}
+
+/* 确保在小屏幕上Logo大小合适 */
+@media (max-width: 768px) {
+    .logo svg {
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo svg {
+        height: 30px;
+    }
+}
+
+.nav-links a {
+    // ... existing code ...
+} 

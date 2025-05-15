@@ -1,0 +1,625 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* 使用 Poppins 字体 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* clipto.ai 主要内容背景色 */
+    color: #333; /* 默认文字颜色，后续根据具体元素调整 */
+}
+
+.container {
+    width: 90%; /* 容器宽度，后续根据 clipto.ai 调整 */
+    max-width: 1200px; /* 最大宽度，后续根据 clipto.ai 调整 */
+    margin: 0 auto; /* 居中 */
+    padding: 0 15px; /* 内边距，后续调整 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* 链接颜色继承父元素，具体再调整 */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Utility Classes (未来可能会添加) */
+
+/* Header Styles */
+.site-header {
+    background-color: #ffffff; /* clipto.ai header 背景色 */
+    padding: 15px 0; /* 上下内边距，后续精确调整 */
+    border-bottom: 1px solid #e9ecef; /* clipto.ai 底边框颜色 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 添加细微阴影 */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* 调整上下内边距使Logo更居中 */
+}
+
+/* Logo 样式 */
+.logo {
+    display: flex;
+    align-items: center;
+    animation: logoFadeIn 0.8s ease; /* Logo 加载动画 */
+}
+
+.logo a {
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo svg {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+/* Logo 悬停效果 */
+.logo a:hover {
+    opacity: 0.85;
+}
+
+/* 为播放按钮添加悬停动画 */
+.logo a:hover circle {
+    fill: #c0392b;
+    transition: fill 0.3s ease;
+}
+
+.logo a:hover path {
+    transform: translateX(2px);
+    transition: transform 0.3s ease;
+}
+
+/* Logo 加载动画 */
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 播放按钮脉冲效果 */
+.logo circle {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 确保导航链接与Logo垂直对齐 */
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 30px; /* 根据 clipto.ai 调整 */
+}
+
+/* 确保在小屏幕上Logo大小合适 */
+@media (max-width: 768px) {
+    .logo svg {
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo svg {
+        height: 30px;
+    }
+}
+
+.nav-links a {
+    font-size: 16px; /* clipto.ai 导航链接字号 */
+    font-weight: 500;
+    color: #34495e; /* clipto.ai 导航链接颜色 */
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3498db; /* clipto.ai 主题色之一 */
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db; /* clipto.ai 悬停颜色 */
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Converter Section Styles */
+.hero-converter-section {
+    /* Fallback background color */
+    background-color: #A8466F; /* 渐变中间色作为回退 */
+    /* Gradient with vendor prefixes */
+    background: -webkit-linear-gradient(left, #7A3E9D 0%, #E74C3C 100%); /* For Safari 5.1 to 6.0 */
+    background: -moz-linear-gradient(left, #7A3E9D 0%, #E74C3C 100%); /* For Firefox 3.6 to 15 */
+    background: -o-linear-gradient(left, #7A3E9D 0%, #E74C3C 100%); /* For Opera 11.1 to 12.0 */
+    background: linear-gradient(to right, #7A3E9D 0%, #E74C3C 100%); /* Standard syntax */
+    
+    padding: 60px 0;
+    text-align: center;
+    position: relative; /* For ::before pseudo-element */
+    z-index: 1; /* Ensure content is above ::before if it also has z-index */
+}
+
+.hero-converter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
+    z-index: -1; /* Place overlay behind content */
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff; /* Updated color */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added text shadow */
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.95); /* Updated color with alpha */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Added text shadow */
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.converter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 输入框和按钮之间的间距 */
+    max-width: 800px; /* 表单最大宽度 */
+    margin: 0 auto 30px auto; /* 上下居中，左右自动 */
+}
+
+.url-input {
+    flex-grow: 1;
+    padding: 18px 25px;
+    font-size: 16px;
+    border: 1px solid #ced4da; /* Original border, consider if it needs change */
+    border-radius: 8px;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); Original shadow */
+    background-color: rgba(255, 255, 255, 0.95); /* Updated background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Updated shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Ensure text inside input is readable */
+}
+
+.url-input:focus {
+    outline: none;
+    border-color: #7A3E9D; /* Using gradient start color for focus */
+    box-shadow: 0 0 0 0.2rem rgba(122, 62, 157, 0.25); /* Adjusted focus shadow */
+}
+
+.convert-button {
+    padding: 18px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7A3E9D; /* Updated text color */
+    background-color: #ffffff; /* Updated background color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+    /* box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); Original shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Adjusted shadow for better blend */
+}
+
+.convert-button:hover {
+    background-color: #f8f9fa; /* Updated hover background */
+    /* color: #7A3E9D; Color remains the same */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Added more distinct shadow on hover */
+}
+
+.convert-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+.format-options {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9); /* Updated color */
+}
+
+/* General Section Title Styles (can be reused) */
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Features Section Styles */
+.features-section {
+    background: #e0e0e0; /* 更改为灰色背景 */
+    padding: 60px 0;
+    position: relative;
+}
+
+/* 白色圆角容器 */
+.features-section .container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+}
+
+/* 两列布局 */
+.features-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.features-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 单个功能项样式 */
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.feature-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* 动画延迟 */
+.features-column:first-child .feature-item:nth-child(1) { animation-delay: 0.1s; }
+.features-column:first-child .feature-item:nth-child(2) { animation-delay: 0.2s; }
+.features-column:last-child .feature-item:nth-child(1) { animation-delay: 0.3s; }
+.features-column:last-child .feature-item:nth-child(2) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 图标样式 */
+.feature-icon {
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+    border-radius: 10px;
+    flex-shrink: 0;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+/* 图标悬停效果 */
+.feature-item:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 功能内容 */
+.feature-content {
+    flex: 1;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.feature-description {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .features-grid {
+        flex-direction: column;
+    }
+    
+    .features-column {
+        width: 100%;
+    }
+    
+    .features-section .container {
+        padding: 30px 20px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+/* How To Use Section Styles */
+.how-to-use-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* 通常此区域背景为白色 */
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column; /* 步骤垂直排列 */
+    gap: 40px; /* 步骤之间的间距 */
+    max-width: 800px; /* 限制最大宽度，使其更易读 */
+    margin: 0 auto; /* 居中 */
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start; /* 编号和内容顶部对齐 */
+    gap: 25px; /* 编号和内容之间的间距 */
+}
+
+.step-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff; /* 数字颜色 */
+    background-color: #3498db; /* 主题色背景 */
+    border-radius: 50%; /* 圆形背景 */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* 防止编号被压缩 */
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 5px; /* 微调与编号的对齐 */
+    margin-bottom: 8px;
+}
+
+.step-description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.step-image {
+    margin-top: 15px;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: 60px 0;
+    background-color: #f8f9fa; /* 与 body 背景一致或稍有不同 */
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto; /* 居中 */
+}
+
+.faq-item {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef; /* 边框 */
+    border-radius: 8px;
+    margin-bottom: 15px; /* 项目之间的间距 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.faq-item[open] {
+    /* border-bottom: none; 可选，如果展开后不希望底部边框与其他内容重叠 */
+}
+
+.faq-question {
+    display: block; /* 使 summary 占据整行以便更好地点击 */
+    padding: 20px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #34495e;
+    cursor: pointer;
+    position: relative; /* 用于定位伪元素图标 */
+    list-style: none; /* 移除默认的 disclosure triangle */
+}
+
+.faq-question::-webkit-details-marker { /* 隐藏 Chrome/Safari 默认箭头 */
+    display: none;
+}
+
+.faq-question::marker { /* 隐藏 Firefox 默认箭头 */
+   display: none; /* 在某些现代浏览器中可能需要 */
+   content: ""; /* 或者设置为空内容 */
+}
+
+
+.faq-question:after { /* 自定义展开/折叠图标 */
+    content: '+'; /* 默认显示加号 */
+    font-family: 'Poppins', sans-serif; /* 确保符号样式一致 */
+    font-size: 24px;
+    font-weight: 700;
+    color: #3498db; /* 主题色 */
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] .faq-question:after {
+    content: '−'; /* Unicode minus sign, or simple hyphen '-' */
+    transform: translateY(-50%) rotate(0deg); /* 确保减号是水平的，如果用的是加号旋转则这里是 rotate(45deg) 或其他 */
+}
+
+.faq-answer {
+    padding: 0px 25px 20px 25px; /* 答案区域的内边距，顶部由 summary 的 padding 覆盖 */
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    border-top: 1px solid #e9ecef; /* 问题和答案之间的分隔线 */
+    background-color: #fff; /* 确保背景色 */
+}
+
+.faq-answer p {
+    margin: 0;
+    padding-top: 15px; /* 使段落与上边框有间距 */
+}
+
+.faq-answer p:first-child {
+    /* padding-top: 0; 如果不希望第一个段落有额外顶部内边距 */
+}
+
+/* Footer Styles */
+.main-footer {
+    background-color: #ffffff; /* clipto.ai 页脚背景色 */
+    padding: 40px 0;
+    border-top: 1px solid #e9ecef; /* 页脚顶部边框 */
+    color: #6c757d; /* 页脚文字颜色，较柔和的灰色 */
+    font-size: 14px;
+}
+
+.main-footer .container {
+    /* container 已经有左右 auto margin 和 padding */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* 移动端默认垂直排列 */
+    align-items: center; /* 垂直排列时居中 */
+    text-align: center;
+    gap: 20px; /* 各部分之间的间距 */
+}
+
+.footer-links a {
+    color: #6c757d;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #3498db; /* 主题色悬停 */
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-social-media p { /* 临时占位符样式 */
+    margin: 0;
+}
+
+/* 社交媒体图标的真实样式会更复杂，可能需要图标库 */
+/* .footer-social-media a {
+    color: #6c757d;
+    margin: 0 8px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-social-media a:hover {
+    color: #3498db;
+} */
+
+/* 桌面端布局调整 */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row; /* 桌面端水平排列 */
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer-links {
+        order: 1; /* 链接在左 */
+    }
+    .footer-copyright {
+        order: 2; /* 版权居中 (如果 footer-social-media 存在且在右侧) */
+        /* 如果只有链接和版权，可以考虑让版权信息在最右侧 */
+    }
+    .footer-social-media {
+        order: 3; /* 社交媒体在右 */
+    }
+} 
