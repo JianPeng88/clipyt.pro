@@ -69,6 +69,44 @@
                     <p>Format options will appear here after pasting a link.</p> 
                     <!-- 实际 clipto.ai 可能在链接粘贴后才显示，或有默认选项 -->
                 </div>
+				
+				<!-- 进度条区域 -->
+				<div class="progress-section" id="progressSection" style="display: none;">
+				    <div class="progress-info" style="color: #fff; margin-top: 40px;">
+				        <i class="fas fa-cloud-upload-alt"></i>
+				        <span>正在上传至云端并分析，请稍等：<span id="progressPercent">0</span>% ... 预计分析时间：<span id="estimatedTime">30</span>秒</span>
+				    </div>
+				    <div class="progress-bar">
+				        <div class="progress" id="progressBar"></div>
+				    </div>
+				</div>
+				
+				<!-- 结果展示区域(默认隐藏) -->
+				<div class="result-section" id="resultSection" style="display: none;">
+				    <div class="parse-success" style="color: #fff;">
+				        <div class="success-icon">
+				            <i class="fas fa-hand-peace"></i>
+				        </div>
+				        <h2>文件解析成功！</h2>
+				    </div>
+				
+				    <!-- 视频预览 -->
+				    <div class="video-preview" style="height: 300px;">
+				        <video id="videoPreview" controls style="height: 300px;">
+				            您的浏览器不支持视频播放。
+				        </video>
+				    </div>
+				
+				    <!-- 下载提示 -->
+				    <div class="download-info" style="color: #fff;">
+				        <p>此媒体将在30分钟内自动删除，请及时下载。</p>
+				    </div>
+				
+				    <!-- 历史记录和下载按钮 -->
+				    <div class="download-actions">
+				        <div class="download-options" id="downloadBtn" style="width: 200px;margin: auto;background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);padding: 10px;border-radius: 10px;color: #fff;">Download [1920*1080]</div>
+				    </div>
+				</div>
             </div>
         </section>
 
@@ -216,7 +254,8 @@
             </div>
         </div>
     </footer>
-
+	
+	<script src="js/apiService.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html> 
