@@ -67,9 +67,18 @@
                 </div>
                 
                 <div class="format-options">
-                    <!-- 占位：格式选择 (MP3/MP4) 和质量选项将在这里 -->
-                    <p>Format options will appear here after pasting a link.</p> 
-                    <!-- 实际 clipto.ai 可能在链接粘贴后才显示，或有默认选项 -->
+                    <div class="format-selector">
+						<div class="radio-group">
+							<label class="radio-option">
+								<input type="radio" name="fileFormat" value="mp4" checked>
+								MP4视频格式
+							</label>
+							<label class="radio-option" style="padding-left: 60px;">
+								<input type="radio" name="fileFormat" value="mp3">
+								MP3音频格式
+							</label>
+						</div>
+					</div>
                 </div>
 				
 				<!-- 进度条区域 -->
@@ -108,7 +117,7 @@ Your browser does not support video playback。
 				
 				    <!-- 历史记录和下载按钮 -->
 				    <div class="download-actions">
-				        <div class="download-options" id="downloadBtn" style="width: 200px;margin: auto;background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);padding: 10px;border-radius: 10px;color: #fff;">Download [1920*1080]</div>
+				        <div class="download-options" id="downloadBtn" style="width: 200px;margin: auto;background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);padding: 10px;border-radius: 10px;color: #fff;">Download</div>
 				    </div>
 				</div>
             </div>

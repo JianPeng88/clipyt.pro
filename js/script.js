@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const videoPreview = document.getElementById('videoPreview');
 	const downloadBtn = document.getElementById('downloadBtn');
 	
+	const radioButtons = document.querySelectorAll('input[name="fileFormat"]');
+	
 	// 模拟的视频数据
 	const sampleVideoData = {
 		formats: [
@@ -48,26 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	// 下载按钮功能
 	convertBtn.addEventListener('click', async function() {
-		// 检查URL是否为空
-		if (!videoUrlInput.value.trim()) {
-			alert('请输入YouTube视频链接');
-			return;
-		}
+		// // 检查URL是否为空
+		// if (!videoUrlInput.value.trim()) {
+		// 	alert('请输入YouTube视频链接');
+		// 	return;
+		// }
+		
+		// 获取选中的值
+		const selectedFormat = document.querySelector('input[name="fileFormat"]:checked').value;
 	
 		// 显示进度条
 		progressSection.style.display = 'block';
-	
+		
 		// 下载视频
-		const downloadResult = await downloadVideo(videoUrlInput.value);
-	
+		const downloadResult = await downloadVideo(videoUrlInput.value, selectedFormat);
+		
 		sampleVideoData.previewUrl = downloadResult.data
 	
 		if (downloadResult.code !== 1) {
 			throw new Error(downloadResult.msg);
 		}
-	
+		
 		// 模拟解析进度
-		let progress = 0;
+		let progress = 5;
 		const interval = setInterval(function() {
 			progress += 2;
 			progressBar.style.width = progress + '%';
@@ -88,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	function showResults(data) {
 		// 显示结果区域
 		resultSection.style.display = 'block';
+		
+		// 获取选中的值
+		const selectedFormat = document.querySelector('input[name="fileFormat"]:checked').value;
 	
 		// 设置视频预览
 		// 注意：真实应用中，这里应该设置为实际解析到的视频预览URL
@@ -95,7 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 		// 添加视频下载选项
 		downloadBtn.addEventListener('click', function() {
-			alert(`正在下载 [1080*1920] 格式的视频`);
+			// 示例：根据选择执行不同操作
+			if (selectedFormat === 'mp3') {
+				// MP3相关操作
+				alert('正在下载MP3格式音频');
+			} else if (selectedFormat === 'mp4') {
+				// MP4相关操作
+				alert(`正在下载 [1080*1920] 格式的视频`);
+			}
 			
 			// ✅ 真实下载逻辑开始
 			const downloadFile = async () => {

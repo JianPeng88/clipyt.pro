@@ -3,7 +3,7 @@
  * 用于前端与后端API通信
  */
 
-const API_BASE_URL = 'https://xyz86.top/aitool/api';
+const API_BASE_URL = 'https://xyz86.top/aitool/API';
 
 /**
  * 解析YouTube视频链接
@@ -46,8 +46,8 @@ async function downloadVideo(url, format, quality = null) {
     if (quality) {
       requestBody.quality = quality;
     }
-    
-    const response = await fetch(`${API_BASE_URL}/aiassist/aitool/downloadvideo?videoUrl=`+url+'&onlyAudio=false', {
+	
+    const response = await fetch(`${API_BASE_URL}/aiassist/aitool/downloadvideo?videoUrl=`+url+`&onlyAudio=${format==='mp4'?'false':'true'}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
